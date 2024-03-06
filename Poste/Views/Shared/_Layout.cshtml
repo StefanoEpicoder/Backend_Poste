@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poste Italiane</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+
+<!-- //////////////////////////////////////////// NAVBAR /////////////////////////////////////////////-->
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm" style="background-color: #EEDC00;">
+        <div class="container">
+            @Html.ActionLink("Poste Italiane", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-primary" })
+
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <!-- <li>@Html.ActionLink("User", "Index", "UserLogin", new { area = "" }, new { @class = "nav-link text-primary" })</li> -->
+                    <li>@Html.ActionLink("Tracking", "Index", "Tracking", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- //////////////////////////////////////////// FOOTER /////////////////////////////////////////////-->
+    <div class="container body-content ">
+        @RenderBody()
+
+        <footer class="bg-dark mb-1 w-100 justify-content-center rounded fixed-bottom">
+
+            <div class="d-flex fex-row justify-content-around pt-3 rounded text-primary" style="background-color: #EEDC00">
+                <p>&copy; @DateTime.Now.Year - Poste Italiane</p>
+                <p>Contact</p>
+                <p>Info</p>
+                <p>Privacy</p>
+            </div>
+
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

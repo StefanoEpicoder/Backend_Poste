@@ -1,0 +1,35 @@
+﻿@model  IEnumerable<Poste.Models.Tracking>
+
+@{
+    ViewBag.Title = "GetTrackingList";
+}
+
+<h2>GetTrackingList</h2>
+
+<div class="text-center d-flex align-items-center flex-column">
+
+    <div class="d-flex flex-column">
+        <div>
+            <h2 class="text-center">Tracking delle spedizioni</h2>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id Spedizione</th>
+                <th>Nome Cliente</th>
+                <th>Id Cliente</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var spedizione in Model)
+            {
+                <tr>
+                    <td>@spedizione.IdSpedizione</td>
+                    <td>@spedizione.NomeCliente</td>
+                    <td>@spedizione.IdCliente</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

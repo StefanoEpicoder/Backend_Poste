@@ -1,0 +1,154 @@
+﻿@model Poste.Models.Spedizioni
+
+@{
+    ViewBag.Title = "RegisterPackage";
+}
+
+<div class="d-flex justify-content-end w-100">
+    @Html.ActionLink("Logout", "Index", "Home", null, new { @class = "text-decoration-none text-light bg-danger p-2 mx-1 rounded-pill border border-light" })
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="d-flex flex-row justify-content-evenly align-items-center">
+        @Html.ActionLink("Aggiungi Pacco", "RegisterPackage", "Spedizioni", null, new { @class = "text-decoration-none text-light bg-primary p-2 rounded-pill d-flex align-items-center" })
+        @Html.ActionLink("Aggiorna Pacco", "Aggiorna", "Aggiornamenti", null, new { @class = "text-decoration-none text-primary bg-light p-2 rounded-pill d-flex align-items-center" })
+        @Html.ActionLink("Agiungi Cliente", "AddClienti", "Clienti", null, new { @class = "text-decoration-none text-primary bg-light p-2 rounded-pill d-flex align-items-center" })
+                   
+    </div>
+}
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="d-flex flex-column justify-content-center align-content-center w-50 mx-auto rounded mt-5 text-primary" style="background-color: #EEDC00">
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h2>Aggiungi nuova spedizione:</h2>
+                @Html.ValidationSummary(true, "Uno o più campi input errati:", new { @class = "text-warning" })
+
+                <div class="form-group">
+                    <div class="d-flex flex-column align-items-center">
+                        @Html.LabelFor(model => model.DataSpedizione, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.DataSpedizione, new { htmlAttributes = new { @class = "form-control", placeholder = "AAAA-MM-GG" } })
+                            @Html.ValidationMessageFor(model => model.DataSpedizione, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+                <div class="form-group">
+                    <div class="d-flex flex-column align-items-center">
+                        @Html.LabelFor(model => model.Peso, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.Peso, new { htmlAttributes = new { @class = "form-control", placeholder = "Peso (in kg)" } })
+                            @Html.ValidationMessageFor(model => model.Peso, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+                <div class="form-group">
+                    <div class="d-flex flex-column align-items-center">
+                        @Html.LabelFor(model => model.CittaDestinazione, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.CittaDestinazione, new { htmlAttributes = new { @class = "form-control", placeholder = "Città" } })
+                            @Html.ValidationMessageFor(model => model.CittaDestinazione, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+                <div class="form-group">
+                    <div class="d-flex flex-column align-items-center">
+                        @Html.LabelFor(model => model.Indirizzo, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.Indirizzo, new { htmlAttributes = new { @class = "form-control", placeholder = "Indirizzo" } })
+                            @Html.ValidationMessageFor(model => model.Indirizzo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+                <div class="form-group">
+                    <div class="d-flex flex-column align-items-center">
+                        @Html.LabelFor(model => model.Destinatario, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.Destinatario, new { htmlAttributes = new { @class = "form-control", placeholder = "Nome & Cognome" } })
+                            @Html.ValidationMessageFor(model => model.Destinatario, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ///////////////////////////////////// QUI ANDREMO A FARE UNA DROPDOWN LIST DEI CLIENTI///////////////////////////////-->
+            <div class="d-flex flex-column justify-content-center align-items-center">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+                <div class="form-group">
+                    <div class="d-flex flex-column align-items-center">
+                        @Html.LabelFor(model => model.ClienteID, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.ClienteID, new { htmlAttributes = new { @class = "form-control", placeholder = "ID" } })
+                            @Html.ValidationMessageFor(model => model.ClienteID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+                <div class="form-group">
+                    <div class="d-flex flex-column align-items-center">
+                        @Html.LabelFor(model => model.ConsegnaPrevista, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.ConsegnaPrevista, new { htmlAttributes = new { @class = "form-control", placeholder = "AAAA-MM-GG" } })
+                            @Html.ValidationMessageFor(model => model.ConsegnaPrevista, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="form-group">
+                    <div class="mt-4 mb-4">
+                        <input type="submit" value="Aggiungi Spedizione" class="btn btn-primary border border-light" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <br />
+    <br />
+    <div class="d-flex justify-content-end w-100">
+        @Html.ActionLink("Lista Spedizioni", "Index", "Spedizioni", null, new { @class = "text-decoration-none text-light bg-primary p-2 mx-1 rounded-pill border border-light" })
+    </div>
+    <br>
+    <br>
+    <br>

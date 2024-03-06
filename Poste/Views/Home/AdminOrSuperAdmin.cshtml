@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "AdminOrSuperAdmin";
+}
+
+<h2>Hi AdminOrSuperAdmin</h2>
+
+<div id="menucontainer">
+    <ul id="menu">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Protected", "Protected", "Home")</li>
+        @if (User.IsInRole("SuperAdmin"))
+        {
+            <li>
+                @Html.ActionLink("Admin",
+          "User", "Home")
+            </li>
+        }
+        @if (User.IsInRole("User"))
+        {
+            <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
+        }
+        @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+        {
+            <li>
+                @Html.ActionLink("Admin Or Super Admin",
+           "AdminOrSuperAdmin", "Home")
+            </li>
+        }
+        @if (User.IsInRole("Admin") || User.IsInRole("Author"))
+        {
+            <li>
+                @Html.ActionLink("Admin Or Author",
+          "AdminOrAuthor", "Home")
+            </li>
+        }
+        @if (User.IsInRole("SuperAdmin"))
+        {
+            <li>
+                @Html.ActionLink("Manage Users",
+          "Index", "Manage")
+            </li>
+        }
+    </ul>
+</div>

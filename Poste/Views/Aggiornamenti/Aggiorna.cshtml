@@ -1,0 +1,139 @@
+﻿@model Poste.Models.Aggiornamenti
+
+@{
+    ViewBag.Title = "Aggiorna";
+}
+
+<div class="d-flex justify-content-end w-100">
+    @Html.ActionLink("Logout", "Index", "Home", null, new { @class = "text-decoration-none text-light bg-danger p-2 mx-1 rounded-pill border border-light" })
+</div>
+
+<div class="d-flex flex-row justify-content-evenly align-items-center">
+    @Html.ActionLink("Aggiungi Pacco", "RegisterPackage", "Spedizioni", null, new { @class = "text-decoration-none text-primary bg-light p-2 rounded-pill d-flex align-items-center" })
+    @Html.ActionLink("Aggiorna Pacco", "Aggiorna", "Aggiornamenti", null, new { @class = "text-decoration-none text-light bg-primary p-2 rounded-pill d-flex align-items-center" })
+    @Html.ActionLink("Agiungi Cliente", "AddClienti", "Clienti", null, new { @class = "text-decoration-none text-primary bg-light p-2 rounded-pill d-flex align-items-center" })
+</div>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="d-flex flex-column justify-content-center align-content-center w-50 mx-auto rounded mt-5 text-primary" style="background-color: #EEDC00">
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h2>Aggiorna spedizione:</h2>
+        @Html.ValidationSummary(true, "Uno o più campi input errati:", new { @class = "text-warning" })
+
+        <div class="form-group">
+            <div class="d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.SpedizioneID, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.SpedizioneID, new { htmlAttributes = new { @class = "form-control", placeholder = "ID Pacco" } })
+                    @Html.ValidationMessageFor(model => model.SpedizioneID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+        <div class="form-group">
+            <div class="d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Satus, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.Satus, new { htmlAttributes = new { @class = "form-control", placeholder = "Stato del pacco" } })
+                    @Html.ValidationMessageFor(model => model.Satus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+        <div class="form-group">
+            <div class="d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Luogo, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.Luogo, new { htmlAttributes = new { @class = "form-control", placeholder = "Luogo del pacco" } })
+                    @Html.ValidationMessageFor(model => model.Luogo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+        <div class="form-group">
+            <div class="d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control", placeholder = "Descrizione" } })
+                    @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+        <div class="form-group">
+            <div class="d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.DataEOra, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.DataEOra, new { htmlAttributes = new { @class = "form-control", placeholder = "AAAA-MM-GG HH-MM-SS" } })
+                    @Html.ValidationMessageFor(model => model.DataEOra, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+        <div class="form-group">
+            <div class="d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.CodiceTasseCliente, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.CodiceTasseCliente, new { htmlAttributes = new { @class = "form-control", placeholder = "Inserisci CF o P.IVA" } })
+                    @Html.ValidationMessageFor(model => model.CodiceTasseCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="form-group">
+            <div class="mt-4 mb-4">
+                <input type="submit" value="Aggiorna Spedizione" class="btn btn-primary border border-light" />
+            </div>
+        </div>
+
+    </div>
+</div>
+}
+<br />
+<br />
+<div class="d-flex justify-content-end w-100">
+    @Html.ActionLink("Lista Aggiornamenti", "Index", "Aggiornamenti", null, new { @class = "text-decoration-none text-light bg-success p-2 mx-1 rounded-pill border border-light" })
+</div>
+<br>
+<br>
+<br>
+
+
+
+

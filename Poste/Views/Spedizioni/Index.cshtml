@@ -1,0 +1,65 @@
+﻿@model List<Poste.Models.Spedizioni>
+
+<div class="d-flex justify-content-end w-100">
+    @Html.ActionLink("Logout", "Index", "Home", null, new { @class = "text-decoration-none text-light bg-danger p-2 mx-1 rounded-pill border border-light" })
+</div>
+
+
+<div class="d-flex flex-row justify-content-around">
+    @Html.ActionLink("Aggiungi Pacco", "RegisterPackage", "Spedizioni", null, new { @class = "text-decoration-none text-light bg-primary p-2 rounded-pill" })
+    @Html.ActionLink("Aggiorna Pacco", "Aggiorna", "Aggiornamenti", null, new { @class = "text-decoration-none text-light bg-primary p-2 rounded-pill" })
+    @Html.ActionLink("Aggiungi Cliente", "AddClienti", "Clienti", null, new { @class = "text-decoration-none text-light bg-primary p-2 rounded-pill" })
+</div>
+
+<br />
+<br />
+<br />
+
+        <h2>Lista Spedizioni:</h2>
+
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data Spedizione</th>
+                    <th>Peso</th>
+                    <th>Citta Destinazione</th>
+                    <th>Indirizzo</th>
+                    <th>Destinatario</th>
+                    <th>ClienteID</th>
+                    <th>ConsegnaPrevista</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var spedizione in Model)
+                {
+                    <tr>
+                        <td>@spedizione.IdSpedizione</td>
+                        <td>@spedizione.DataSpedizione</td>
+                        <td>@spedizione.Peso</td>
+                        <td>@spedizione.CittaDestinazione</td>
+                        <td>@spedizione.Indirizzo</td>
+                        <td>@spedizione.Destinatario</td>
+                        <td>@spedizione.ClienteID</td>
+                        <td>@spedizione.ConsegnaPrevista</td>
+                        <td class="d-flex justify-content-evenly">
+                            <form action="@Url.Action("DeletePackage", "Spedizioni")" method="post">
+                                @Html.Hidden("IdSpedizione", spedizione.IdSpedizione)
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger btn-sm">Elimina</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+
