@@ -146,9 +146,13 @@
     }
     <br />
     <br />
+
+    @if (User.IsInRole("Admin"))
+    {
     <div class="d-flex justify-content-end w-100">
         @Html.ActionLink("Lista Spedizioni", "Index", "Spedizioni", null, new { @class = "text-decoration-none text-light bg-primary p-2 mx-1 rounded-pill border border-light" })
     </div>
+    }
     <br>
     <br>
     <br>

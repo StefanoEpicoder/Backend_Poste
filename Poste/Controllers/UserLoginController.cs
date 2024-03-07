@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace Poste.Controllers
+/*namespace Poste.Controllers
 {
     public class UserLoginController : Controller
     {
@@ -72,7 +72,7 @@ namespace Poste.Controllers
             return RedirectToAction("Index", "Home");
         }
     }
-}
+}*/
 /*namespace Poste.Controllers
 {
     public class UserLoginController : Controller

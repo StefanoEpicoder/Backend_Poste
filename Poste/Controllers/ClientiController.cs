@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Poste.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ClientiController : Controller
     {
         // Metodo per visualizzare l'elenco dei clienti
