@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Poste.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin, User")]
     public class SpedizioniController : Controller
     {
         // Metodo per visualizzare l'elenco delle spedizioni

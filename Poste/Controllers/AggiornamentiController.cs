@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Poste.Controllers
 {
-    
+    [Authorize(Roles = "Admin")]
     public class AggiornamentiController : Controller
     {
         public ActionResult Index()

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Poste.Models
 {
+    [Authorize(Roles = "Admin")]
     public class Tracking
     {
         public int IdSpedizione { get; set; }

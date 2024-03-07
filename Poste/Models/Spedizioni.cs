@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Poste.Models
 {
+    [Authorize(Roles = "Admin")]
     public class Spedizioni
     {
 
@@ -31,7 +33,7 @@ namespace Poste.Models
 
         [Required(ErrorMessage = "La data deve essere nel formato: AAAA-MM-GG")]
         public string ConsegnaPrevista { get; set; }
-
+       
         public static List<Spedizioni> ListaSpedizioni { get; set; } = new List<Spedizioni>();
     }
 }

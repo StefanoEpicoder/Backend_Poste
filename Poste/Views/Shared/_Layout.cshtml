@@ -19,8 +19,10 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "nav-link text-primary" })</li>
-                    <!-- <li>@Html.ActionLink("User", "Index", "UserLogin", new { area = "" }, new { @class = "nav-link text-primary" })</li> -->
+                    <!--<li>@Html.ActionLink("User", "Index", "UserLogin", new { area = "" }, new { @class = "nav-link text-primary" })</li>-->
                     <li>@Html.ActionLink("Tracking", "Index", "Tracking", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Contatti", "Contatti", "Home", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Informazioni", "Informazioni", "Home", new { area = "" }, new { @class = "nav-link text-primary" })</li>
                 </ul>
             </div>
         </div>
@@ -34,9 +36,6 @@
 
             <div class="d-flex fex-row justify-content-around pt-3 rounded text-primary" style="background-color: #EEDC00">
                 <p>&copy; @DateTime.Now.Year - Poste Italiane</p>
-                <p>Contact</p>
-                <p>Info</p>
-                <p>Privacy</p>
             </div>
 
         </footer>

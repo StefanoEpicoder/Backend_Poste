@@ -123,7 +123,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SpedizioniController.cs" />
-    <Compile Include="Controllers\SpedizioniUserController.cs" />
     <Compile Include="Controllers\TrackingController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -131,6 +130,7 @@
     </Compile>
     <Compile Include="Models\Aggiornamenti.cs" />
     <Compile Include="Models\Clienti.cs" />
+    <Compile Include="Models\Utente.cs" />
     <Compile Include="Models\SiteRole.cs" />
     <Compile Include="Models\Spedizioni.cs" />
     <Compile Include="Models\Tracking.cs" />
